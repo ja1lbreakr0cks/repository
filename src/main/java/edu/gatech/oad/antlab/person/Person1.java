@@ -31,7 +31,18 @@ public class Person1 {
 	 */
 	private String calc(String input) {
 	  //Person 1 put your implementation here
-	  return null;
+      byte[] bytes = input.getBytes();
+      for (int i = 0; i < 2; i++) {
+          byte temp1 = bytes[bytes.length - 1];
+          int j = bytes.length - 1;
+          while (--j >= 0) {
+              byte temp2 = bytes[j];
+              bytes[j] = temp1;
+              temp1 = temp2;
+          }
+          bytes[bytes.length - 1] = temp1;
+      }
+	  return new String(bytes);
 	}
 	
 	/**
@@ -45,5 +56,4 @@ public class Person1 {
 	public String toString(String input) {
 	  return name + calc(input);
 	}
-
 }

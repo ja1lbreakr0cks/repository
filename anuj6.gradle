@@ -10,3 +10,7 @@ jar {
 compileJava {
     include('lib/resources.jar')
 }
+
+repositories {
+    mavenCentral()
+}

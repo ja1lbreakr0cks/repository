@@ -37,12 +37,12 @@ public class Person2 {
 		String result = "";
 		char[] chars = input.toCharArray();
 		List<Character> charList = new ArrayList<Character>();
-		Random rand = new Random();
+		Random r = new Random();
 		for (char c : chars) {
 			charList.add(c);
 		}
 		while(charList.size() > 0) {
-			int limit = rand.nextInt(charList.size());
+			int limit = r.nextInt(charList.size());
 			result += charList.remove(limit);
 		}
 		return result;

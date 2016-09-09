@@ -30,18 +30,9 @@ public class Person5 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	     byte[] bytes = input.getBytes();
-          for (int i = 0; i < 2; i++) {
-              byte temp1 = bytes[bytes.length - 1];
-              int j = bytes.length - 1;
-              while (--j >= 0) {
-                  byte temp2 = bytes[j];
-                  bytes[j] = temp1;
-                  temp1 = temp2;
-              }
-              bytes[bytes.length - 1] = temp1;
-          }
-          return new String(bytes);
+        int leng = input.length();
+        String result = input.substring(2, leng) + input.substring(0, 2);
+        return result;
 	}
 	
 	/**

@@ -1,4 +1,4 @@
-defaultTasks 'compileJava', 'compileTest', 'javadoc', 'jar'
+defaultTasks 'clean', 'compileJava', 'compileTest', 'javadoc', 'jar'
 
 apply plugin: 'java'
 

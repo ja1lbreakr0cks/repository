@@ -1,20 +1,17 @@
-defaultTasks 'compileJava', 'compileTest', 'javadoc', 'clean', 'jar'
+defaultTasks 'clean', 'compileJava', 'compileTest', 'javadoc', 'jar'
 
 apply plugin: 'java'
 
-sourceSets.main.java.srcDir 'src/main/java'
-sourceCompatibility = 1.7
-
 dependencies {
-    compile files('lib/resources.jar')
+    compile files('/lib/resources.jar')
 }
 
 jar { 
+    from configurations.compile.collect{zipTree it}
 	manifest {
-		attributes 'Implementation-Title': 'M2', 'Implementation-Version': '1.0', 'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain', 'Class-Path' : 'src/main/java;lib/resources.jar'
+		attributes ('Implementation-Title': 'M2', 
+        'Implementation-Version': '1.0', 
+        'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain', 
+        'Class-Path' : '../../lib/resources.jar')
 	}
-}
-
-repositories {
-    mavenCentral()
 }
